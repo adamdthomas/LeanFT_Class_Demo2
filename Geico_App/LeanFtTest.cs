@@ -24,8 +24,7 @@ namespace Geico_App
             browser = BrowserFactory.Launch(BrowserType.InternetExplorer);
             browser.Navigate("https://auto-buy-gz-user1.geico.com/");
             GeicoApp GAM = new GeicoApp(browser);
-            GAM.CertificateErrorNavigationBlockedPage.ContinueToThisWebsiteNotRecommendedLink.Click();
-
+            GAM.ErrorPage.ContinueLink.Click();
         }
 
         [Test]

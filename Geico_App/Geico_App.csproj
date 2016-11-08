@@ -96,6 +96,7 @@
       <DependentUpon>GeicoApp.tsrx</DependentUpon>
     </Compile>
     <Compile Include="LeanFtTest.cs" />
+    <Compile Include="Pages\HomePage.cs" />
     <Compile Include="UnitTestClassBase.cs" />
     <None Include="App.config" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,9 +105,7 @@
     </Content>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
