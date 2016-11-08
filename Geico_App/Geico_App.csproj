@@ -96,9 +96,10 @@
       <DependentUpon>GeicoApp.tsrx</DependentUpon>
     </Compile>
     <Compile Include="LeanFtTest.cs" />
-    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\CustomerInfoPage.cs" />
+    <Compile Include="Pages\VehicleInfoPage.cs" />
     <Compile Include="UnitTestClassBase.cs" />
-    <None Include="App.config" />
+    <None Include="Pages\App.config" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="GeicoApp.tsrx">
       <SubType>Designer</SubType>

@@ -3,6 +3,8 @@ using NUnit.Framework;
 using HP.LFT.SDK;
 using HP.LFT.Verifications;
 using HP.LFT.SDK.Web;
+using Geico_App.Pages;
+using HP.LFT.Report;
 
 namespace Geico_App
 {
@@ -10,6 +12,8 @@ namespace Geico_App
     public class LeanFtTest : UnitTestClassBase
     {
         IBrowser browser;
+        CustomerInfoPage customer;
+        VehicleInfoPage vehicle;
 
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
@@ -25,11 +29,32 @@ namespace Geico_App
             browser.Navigate("https://auto-buy-gz-user1.geico.com/");
             GeicoApp GAM = new GeicoApp(browser);
             GAM.ErrorPage.ContinueLink.Click();
+
+            customer = new CustomerInfoPage(browser);
+            vehicle = new VehicleInfoPage(browser);
+
         }
 
         [Test]
-        public void Test()
+        public void TestCustomerInfo()
         {
+            if (customer.FillOutForm())
+            {
+                Reporter.ReportEvent("Customer Form", "Filling out customer form with default values", Status.Passed);
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Reporter.ReportEvent("Customer Form", "Filling out customer form with default values", Status.Failed);
+                Assert.IsTrue(false);
+            }
+        }
+
+        [Test]
+        public void TestVehicleInfo()
+        {
+            customer.FillOutForm();
+            Assert.IsTrue(vehicle.FillOutVehicleForm());
         }
 
         [TearDown]

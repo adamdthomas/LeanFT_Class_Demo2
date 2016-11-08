@@ -23,7 +23,9 @@ namespace Geico_App
 		{
 			Name = @"GeicoApp";
 			ErrorPage = new ErrorPageNode(contextTestObject, this);
-			GEICOPage = new GEICOPageNode(contextTestObject, this);
+			CustomerInfo = new CustomerInfoNode(contextTestObject, this);
+			VehicleInfo = new VehicleInfoNode(contextTestObject, this);
+			DriverInfo = new DriverInfoNode(contextTestObject, this);
 			RebuildDescriptions();
 			
 		}
@@ -33,7 +35,9 @@ namespace Geico_App
 		#region Test Objects
 	
 		public ErrorPageNode ErrorPage { get; private set; }
-		public GEICOPageNode GEICOPage { get; private set; }
+		public CustomerInfoNode CustomerInfo { get; private set; }
+		public VehicleInfoNode VehicleInfo { get; private set; }
+		public DriverInfoNode DriverInfo { get; private set; }
 	
 		#endregion
 	
@@ -99,11 +103,11 @@ namespace Geico_App
 			#endregion
 		}
 
-		public sealed class GEICOPageNode : PageNodeBase
+		public sealed class CustomerInfoNode : PageNodeBase
 		{
 			#region Constructors
 		
-			public GEICOPageNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+			public CustomerInfoNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
 			{
 				FirstNameEditField = new FirstNameEditFieldNode(this, applicationModel);
 				LastNameEditField = new LastNameEditFieldNode(this, applicationModel);
@@ -111,7 +115,13 @@ namespace Geico_App
 				AptEditField = new AptEditFieldNode(this, applicationModel);
 				ZipEditField = new ZipEditFieldNode(this, applicationModel);
 				CityStateEditField = new CityStateEditFieldNode(this, applicationModel);
-				DisplayName = @"GEICO";
+				DateMonthdobEditField = new DateMonthdobEditFieldNode(this, applicationModel);
+				DateDaydobEditField = new DateDaydobEditFieldNode(this, applicationModel);
+				DateYeardobEditField = new DateYeardobEditFieldNode(this, applicationModel);
+				EffectiveDateEditField = new EffectiveDateEditFieldNode(this, applicationModel);
+				NextButton = new NextButtonNode(this, applicationModel);
+				AddVehicleWebElement = new AddVehicleWebElementNode(this, applicationModel);
+				DisplayName = @"Customer";
 			}
 		
 			#endregion
@@ -133,6 +143,12 @@ namespace Geico_App
 			public AptEditFieldNode AptEditField { get; private set; }
 			public ZipEditFieldNode ZipEditField { get; private set; }
 			public CityStateEditFieldNode CityStateEditField { get; private set; }
+			public DateMonthdobEditFieldNode DateMonthdobEditField { get; private set; }
+			public DateDaydobEditFieldNode DateDaydobEditField { get; private set; }
+			public DateYeardobEditFieldNode DateYeardobEditField { get; private set; }
+			public EffectiveDateEditFieldNode EffectiveDateEditField { get; private set; }
+			public NextButtonNode NextButton { get; private set; }
+			public AddVehicleWebElementNode AddVehicleWebElement { get; private set; }
 		
 			#endregion
 		
@@ -288,12 +304,1527 @@ namespace Geico_App
 			
 			}
 
+			public sealed class DateMonthdobEditFieldNode : EditFieldNodeBase
+			{
+				#region Constructors
+			
+				public DateMonthdobEditFieldNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"date-monthdob";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.EditFieldDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.EditFieldDescription
+					{
+						Id = @"date-monthdob"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class DateDaydobEditFieldNode : EditFieldNodeBase
+			{
+				#region Constructors
+			
+				public DateDaydobEditFieldNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"date-daydob";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.EditFieldDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.EditFieldDescription
+					{
+						Id = @"date-daydob"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class DateYeardobEditFieldNode : EditFieldNodeBase
+			{
+				#region Constructors
+			
+				public DateYeardobEditFieldNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"date-yeardob";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.EditFieldDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.EditFieldDescription
+					{
+						Id = @"date-yeardob"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class EffectiveDateEditFieldNode : EditFieldNodeBase
+			{
+				#region Constructors
+			
+				public EffectiveDateEditFieldNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"effectiveDate";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.EditFieldDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.EditFieldDescription
+					{
+						Id = @"effectiveDate"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class NextButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public NextButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Next";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ButtonDescription
+					{
+						ButtonType = @"submit",
+						Id = @"btnSubmit"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class AddVehicleWebElementNode : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public AddVehicleWebElementNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Add Vehicle";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						TagName = @"H2",
+						InnerText = @"Add Vehicle"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			#endregion
+		}
+
+		public sealed class VehicleInfoNode : PageNodeBase
+		{
+			#region Constructors
+		
+			public VehicleInfoNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+			{
+				OwnedWebElement1 = new OwnedWebElement1Node(this, applicationModel);
+				VehicleYearListBox = new VehicleYearListBoxNode(this, applicationModel);
+				VehicleMakeListBox = new VehicleMakeListBoxNode(this, applicationModel);
+				VehicleModelListBox = new VehicleModelListBoxNode(this, applicationModel);
+				BodyStylesListBox = new BodyStylesListBoxNode(this, applicationModel);
+				OwnedWebElement = new OwnedWebElementNode(this, applicationModel);
+				CommuteToWorkOrSchoolWebElement = new CommuteToWorkOrSchoolWebElementNode(this, applicationModel);
+				AnnualMileageListBox = new AnnualMileageListBoxNode(this, applicationModel);
+				NoButton = new NoButtonNode(this, applicationModel);
+				PleasureWebElement = new PleasureWebElementNode(this, applicationModel);
+				AddVehicleWebElement = new AddVehicleWebElementNode(this, applicationModel);
+				DisplayName = @"Vehicle";
+			}
+		
+			#endregion
+		
+			#region Description
+		
+			protected override HP.LFT.SDK.Web.PageDescription CreateDescription()
+			{
+				return new HP.LFT.SDK.Web.PageDescription();
+			}
+		
+			#endregion
+		
+			#region Test Objects
+		
+			public OwnedWebElement1Node OwnedWebElement1 { get; private set; }
+			public VehicleYearListBoxNode VehicleYearListBox { get; private set; }
+			public VehicleMakeListBoxNode VehicleMakeListBox { get; private set; }
+			public VehicleModelListBoxNode VehicleModelListBox { get; private set; }
+			public BodyStylesListBoxNode BodyStylesListBox { get; private set; }
+			public OwnedWebElementNode OwnedWebElement { get; private set; }
+			public CommuteToWorkOrSchoolWebElementNode CommuteToWorkOrSchoolWebElement { get; private set; }
+			public AnnualMileageListBoxNode AnnualMileageListBox { get; private set; }
+			public NoButtonNode NoButton { get; private set; }
+			public PleasureWebElementNode PleasureWebElement { get; private set; }
+			public AddVehicleWebElementNode AddVehicleWebElement { get; private set; }
+		
+			#endregion
+		
+			#region Inner Classes
+		
+			public sealed class OwnedWebElement1Node : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public OwnedWebElement1Node(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Owned1";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						InnerText = @"Owned",
+						XPath = @"//FORM[@id=""vehicleForm""]/DIV[1]/DIV[16]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/LABEL[1]"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class VehicleYearListBoxNode : ListBoxNodeBase
+			{
+				#region Constructors
+			
+				public VehicleYearListBoxNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"vehicleYear";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ListBoxDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ListBoxDescription
+					{
+						Id = @"vehicleYear"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class VehicleMakeListBoxNode : ListBoxNodeBase
+			{
+				#region Constructors
+			
+				public VehicleMakeListBoxNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"vehicleMake";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ListBoxDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ListBoxDescription
+					{
+						Id = @"vehicleMake"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class VehicleModelListBoxNode : ListBoxNodeBase
+			{
+				#region Constructors
+			
+				public VehicleModelListBoxNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"vehicleModel";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ListBoxDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ListBoxDescription
+					{
+						Id = @"vehicleModel"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class BodyStylesListBoxNode : ListBoxNodeBase
+			{
+				#region Constructors
+			
+				public BodyStylesListBoxNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"bodyStyles";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ListBoxDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ListBoxDescription
+					{
+						Id = @"bodyStyles"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class OwnedWebElementNode : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public OwnedWebElementNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Owned";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						ClassName = @"radio radio--stacked",
+						XPath = @"//FORM[@id=""vehicleForm""]/DIV[1]/DIV[16]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/LABEL[1]"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class CommuteToWorkOrSchoolWebElementNode : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public CommuteToWorkOrSchoolWebElementNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Commute (to work or school)";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						ClassName = @"radio radio--stacked",
+						XPath = @"//FORM[@id=""vehicleForm""]/DIV[1]/DIV[17]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/LABEL[1]"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class AnnualMileageListBoxNode : ListBoxNodeBase
+			{
+				#region Constructors
+			
+				public AnnualMileageListBoxNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"annualMileage";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ListBoxDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ListBoxDescription
+					{
+						Id = @"annualMileage"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class NoButtonNode : ButtonNodeBase
+			{
+				#region Constructors
+			
+				public NoButtonNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"No";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.ButtonDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.ButtonDescription
+					{
+						Id = @"btnSubmit",
+						InnerText = @"No"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class PleasureWebElementNode : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public PleasureWebElementNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Pleasure";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						InnerText = @"Pleasure",
+						XPath = @"//FORM[@id=""vehicleForm""]/DIV[1]/DIV[17]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/LABEL[2]"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			public sealed class AddVehicleWebElementNode : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public AddVehicleWebElementNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Add Vehicle";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						TagName = @"H2",
+						InnerText = @"Add Vehicle"
+					};
+				}
+			
+				#endregion
+			
+			}
+
+			#endregion
+		}
+
+		public sealed class DriverInfoNode : PageNodeBase
+		{
+			#region Constructors
+		
+			public DriverInfoNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+			{
+				AddDriverInformationWebElement = new AddDriverInformationWebElementNode(this, applicationModel);
+				DisplayName = @"DriverInfo";
+			}
+		
+			#endregion
+		
+			#region Description
+		
+			protected override HP.LFT.SDK.Web.PageDescription CreateDescription()
+			{
+				return new HP.LFT.SDK.Web.PageDescription();
+			}
+		
+			#endregion
+		
+			#region Test Objects
+		
+			public AddDriverInformationWebElementNode AddDriverInformationWebElement { get; private set; }
+		
+			#endregion
+		
+			#region Inner Classes
+		
+			public sealed class AddDriverInformationWebElementNode : WebElementNodeBase
+			{
+				#region Constructors
+			
+				public AddDriverInformationWebElementNode(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel)
+				{
+					DisplayName = @"Add Driver Information";
+				}
+			
+				#endregion
+			
+				#region Description
+			
+				protected override HP.LFT.SDK.Web.WebElementDescription CreateDescription()
+				{
+					return new HP.LFT.SDK.Web.WebElementDescription
+					{
+						InnerText = @"Add Driver Information",
+						Index = 0
+					};
+				}
+			
+				#endregion
+			
+			}
+
 			#endregion
 		}
 
 		#endregion
 
 		#region Base Classes
+
+		public abstract class ListBoxNodeBase : AppModelNodeBase<HP.LFT.SDK.Web.IListBox, HP.LFT.SDK.Web.ListBoxDescription>, HP.LFT.SDK.Web.IListBox
+		{
+			public ListBoxNodeBase(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel) { }
+
+			#region Public Methods
+	
+			public void Select(params HP.LFT.SDK.Web.IListItem[] items)
+			{
+				 Concrete.Select(items);
+			}
+	
+			public void Select(params string[] items)
+			{
+				 Concrete.Select(items);
+			}
+	
+			public void Select(params uint[] itemIndices)
+			{
+				 Concrete.Select(itemIndices);
+			}
+	
+			public void Deselect(params HP.LFT.SDK.Web.IListItem[] items)
+			{
+				 Concrete.Deselect(items);
+			}
+	
+			public void Deselect(params string[] items)
+			{
+				 Concrete.Deselect(items);
+			}
+	
+			public void Deselect(params uint[] itemIndices)
+			{
+				 Concrete.Deselect(itemIndices);
+			}
+	
+			public HP.LFT.SDK.Web.IListItem GetItem(string text)
+			{
+				return Concrete.GetItem(text);
+			}
+	
+			public void DoubleClick()
+			{
+				 Concrete.DoubleClick();
+			}
+	
+			public void DoubleClick(HP.LFT.SDK.Web.WebDoubleClickArgs args)
+			{
+				 Concrete.DoubleClick(args);
+			}
+	
+			public void HoverTap()
+			{
+				 Concrete.HoverTap();
+			}
+	
+			public void HoverTap(HP.LFT.SDK.Location location)
+			{
+				 Concrete.HoverTap(location);
+			}
+	
+			public void FireEvent(HP.LFT.SDK.Web.EventInfo eventInfo)
+			{
+				 Concrete.FireEvent(eventInfo);
+			}
+	
+			public void LongPress()
+			{
+				 Concrete.LongPress();
+			}
+	
+			public void LongPress(HP.LFT.SDK.Web.WebLongPressArgs args)
+			{
+				 Concrete.LongPress(args);
+			}
+	
+			public void Pan(long deltaX, long deltaY)
+			{
+				 Concrete.Pan(deltaX, deltaY);
+			}
+	
+			public void Pan(HP.LFT.SDK.Web.WebPanArgs args)
+			{
+				 Concrete.Pan(args);
+			}
+	
+			public void Pinch(double scale)
+			{
+				 Concrete.Pinch(scale);
+			}
+	
+			public void Pinch(HP.LFT.SDK.Web.WebPinchArgs args)
+			{
+				 Concrete.Pinch(args);
+			}
+	
+			public void Swipe(HP.LFT.SDK.SwipeDirection direction)
+			{
+				 Concrete.Swipe(direction);
+			}
+	
+			public void Swipe(HP.LFT.SDK.Web.WebSwipeArgs args)
+			{
+				 Concrete.Swipe(args);
+			}
+	
+			public HP.LFT.SDK.IDescription GetDescription()
+			{
+				return Concrete.GetDescription();
+			}
+	
+			public TChild[] FindChildren<TChild>(HP.LFT.SDK.IDescription selector)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.FindChildren<TChild>(selector);
+			}
+	
+			public bool Exists()
+			{
+				return Concrete.Exists();
+			}
+	
+			public bool Exists(uint timeout)
+			{
+				return Concrete.Exists(timeout);
+			}
+	
+			public System.Drawing.Image GetSnapshot()
+			{
+				return Concrete.GetSnapshot();
+			}
+	
+			public void Highlight()
+			{
+				 Concrete.Highlight();
+			}
+	
+			public uint HighlightMatches<TChild>(HP.LFT.SDK.IDescription description)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.HighlightMatches<TChild>(description);
+			}
+	
+			public System.Drawing.Rectangle[] GetTextLocations(string textToFind)
+			{
+				return Concrete.GetTextLocations(textToFind);
+			}
+	
+			public System.Drawing.Rectangle[] GetTextLocations(string textToFind, System.Drawing.Rectangle textArea)
+			{
+				return Concrete.GetTextLocations(textToFind, textArea);
+			}
+	
+			public string GetVisibleText()
+			{
+				return Concrete.GetVisibleText();
+			}
+	
+			public string GetVisibleText(System.Drawing.Rectangle textArea)
+			{
+				return Concrete.GetVisibleText(textArea);
+			}
+	
+			public System.Nullable<System.Drawing.Point> VerifyImageExists(System.Drawing.Image imageToFind, byte similarity = 100)
+			{
+				return Concrete.VerifyImageExists(imageToFind, similarity);
+			}
+	
+			public bool VerifyImageMatch(System.Drawing.Image expectedImage, byte pixelTolerance = 0, byte rgbTolerance = 0)
+			{
+				return Concrete.VerifyImageMatch(expectedImage, pixelTolerance, rgbTolerance);
+			}
+	
+			public bool VerifyImageMatch(System.Drawing.Image expectedImage, HP.LFT.SDK.Utils.ImageMaskArea maskArea, byte pixelTolerance = 0, byte rgbTolerance = 0)
+			{
+				return Concrete.VerifyImageMatch(expectedImage, maskArea, pixelTolerance, rgbTolerance);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.IDescription description)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.Describe<TChild>(description);
+			}
+	
+			public void Click(HP.LFT.SDK.MouseButton button = HP.LFT.SDK.MouseButton.Left)
+			{
+				 Concrete.Click(button);
+			}
+	
+			public void Click(HP.LFT.SDK.ClickArgs args)
+			{
+				 Concrete.Click(args);
+			}
+	
+			public string GetAttribute(string attributeName)
+			{
+				return Concrete.GetAttribute(attributeName);
+			}
+	
+			public string GetComputedStyle(string styleProperty)
+			{
+				return Concrete.GetComputedStyle(styleProperty);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.Web.XPathDescription xpath)  where TChild:class, HP.LFT.SDK.Web.IWebElement
+			{
+				return Concrete.Describe<TChild>(xpath);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.Web.CSSDescription cssSelector)  where TChild:class, HP.LFT.SDK.Web.IWebElement
+			{
+				return Concrete.Describe<TChild>(cssSelector);
+			}
+	
+			public void DragAndDropOn(HP.LFT.SDK.ISupportDragAndDrop dropTarget)
+			{
+				 Concrete.DragAndDropOn(dropTarget);
+			}
+	
+			public void DragAndDropOn(HP.LFT.SDK.ISupportDragAndDrop dropTarget, HP.LFT.SDK.DragAndDropArgs dragAndDropArgs)
+			{
+				 Concrete.DragAndDropOn(dropTarget, dragAndDropArgs);
+			}
+	
+			#endregion
+	
+			#region Public Properties
+	
+			public string Value
+			{
+				get { return Concrete.Value; }		
+			}
+	
+			public string DefaultValue
+			{
+				get { return Concrete.DefaultValue; }		
+			}
+	
+			public bool IsEnabled
+			{
+				get { return Concrete.IsEnabled; }		
+			}
+	
+			public bool IsMultiple
+			{
+				get { return Concrete.IsMultiple; }		
+			}
+	
+			public uint VisibleItemsCount
+			{
+				get { return Concrete.VisibleItemsCount; }		
+			}
+	
+			public System.Collections.ObjectModel.ReadOnlyCollection<HP.LFT.SDK.Web.IListItem> Items
+			{
+				get { return Concrete.Items; }		
+			}
+	
+			public System.Collections.ObjectModel.ReadOnlyCollection<HP.LFT.SDK.Web.IListItem> SelectedItems
+			{
+				get { return Concrete.SelectedItems; }		
+			}
+	
+			public string Type
+			{
+				get { return Concrete.Type; }		
+			}
+	
+			public string XPath
+			{
+				get { return Concrete.XPath; }		
+			}
+	
+			public string CSSSelector
+			{
+				get { return Concrete.CSSSelector; }		
+			}
+	
+			public string Role
+			{
+				get { return Concrete.Role; }		
+			}
+	
+			public string DisplayName
+			{
+				get { return Concrete.DisplayName; }		
+				set { Concrete.DisplayName = value; }
+			}
+	
+			public string ClassName
+			{
+				get { return Concrete.ClassName; }		
+			}
+	
+			public string Id
+			{
+				get { return Concrete.Id; }		
+			}
+	
+			public string TagName
+			{
+				get { return Concrete.TagName; }		
+			}
+	
+			public string InnerHTML
+			{
+				get { return Concrete.InnerHTML; }		
+			}
+	
+			public string OuterHTML
+			{
+				get { return Concrete.OuterHTML; }		
+			}
+	
+			public string InnerText
+			{
+				get { return Concrete.InnerText; }		
+			}
+	
+			public string OuterText
+			{
+				get { return Concrete.OuterText; }		
+			}
+	
+			public string Name
+			{
+				get { return Concrete.Name; }		
+			}
+	
+			public string Title
+			{
+				get { return Concrete.Title; }		
+			}
+	
+			public bool IsVisible
+			{
+				get { return Concrete.IsVisible; }		
+			}
+	
+			public System.Collections.Generic.IReadOnlyDictionary<string, string> Attributes
+			{
+				get { return Concrete.Attributes; }		
+			}
+	
+			public System.Collections.Generic.IReadOnlyDictionary<string, string> Styles
+			{
+				get { return Concrete.Styles; }		
+			}
+	
+			public System.Drawing.Point Location
+			{
+				get { return Concrete.Location; }		
+			}
+	
+			public System.Drawing.Point AbsoluteLocation
+			{
+				get { return Concrete.AbsoluteLocation; }		
+			}
+	
+			public System.Drawing.Size Size
+			{
+				get { return Concrete.Size; }		
+			}
+	
+			public dynamic NativeObject
+			{
+				get { return Concrete.NativeObject; }		
+			}
+	
+			#endregion
+		}
+
+		public abstract class WebElementNodeBase : AppModelNodeBase<HP.LFT.SDK.Web.IWebElement, HP.LFT.SDK.Web.WebElementDescription>, HP.LFT.SDK.Web.IWebElement
+		{
+			public WebElementNodeBase(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel) { }
+
+			#region Public Methods
+	
+			public void DoubleClick()
+			{
+				 Concrete.DoubleClick();
+			}
+	
+			public void DoubleClick(HP.LFT.SDK.Web.WebDoubleClickArgs args)
+			{
+				 Concrete.DoubleClick(args);
+			}
+	
+			public void HoverTap()
+			{
+				 Concrete.HoverTap();
+			}
+	
+			public void HoverTap(HP.LFT.SDK.Location location)
+			{
+				 Concrete.HoverTap(location);
+			}
+	
+			public void FireEvent(HP.LFT.SDK.Web.EventInfo eventInfo)
+			{
+				 Concrete.FireEvent(eventInfo);
+			}
+	
+			public void LongPress()
+			{
+				 Concrete.LongPress();
+			}
+	
+			public void LongPress(HP.LFT.SDK.Web.WebLongPressArgs args)
+			{
+				 Concrete.LongPress(args);
+			}
+	
+			public void Pan(long deltaX, long deltaY)
+			{
+				 Concrete.Pan(deltaX, deltaY);
+			}
+	
+			public void Pan(HP.LFT.SDK.Web.WebPanArgs args)
+			{
+				 Concrete.Pan(args);
+			}
+	
+			public void Pinch(double scale)
+			{
+				 Concrete.Pinch(scale);
+			}
+	
+			public void Pinch(HP.LFT.SDK.Web.WebPinchArgs args)
+			{
+				 Concrete.Pinch(args);
+			}
+	
+			public void Swipe(HP.LFT.SDK.SwipeDirection direction)
+			{
+				 Concrete.Swipe(direction);
+			}
+	
+			public void Swipe(HP.LFT.SDK.Web.WebSwipeArgs args)
+			{
+				 Concrete.Swipe(args);
+			}
+	
+			public HP.LFT.SDK.IDescription GetDescription()
+			{
+				return Concrete.GetDescription();
+			}
+	
+			public TChild[] FindChildren<TChild>(HP.LFT.SDK.IDescription selector)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.FindChildren<TChild>(selector);
+			}
+	
+			public bool Exists()
+			{
+				return Concrete.Exists();
+			}
+	
+			public bool Exists(uint timeout)
+			{
+				return Concrete.Exists(timeout);
+			}
+	
+			public System.Drawing.Image GetSnapshot()
+			{
+				return Concrete.GetSnapshot();
+			}
+	
+			public void Highlight()
+			{
+				 Concrete.Highlight();
+			}
+	
+			public uint HighlightMatches<TChild>(HP.LFT.SDK.IDescription description)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.HighlightMatches<TChild>(description);
+			}
+	
+			public System.Drawing.Rectangle[] GetTextLocations(string textToFind)
+			{
+				return Concrete.GetTextLocations(textToFind);
+			}
+	
+			public System.Drawing.Rectangle[] GetTextLocations(string textToFind, System.Drawing.Rectangle textArea)
+			{
+				return Concrete.GetTextLocations(textToFind, textArea);
+			}
+	
+			public string GetVisibleText()
+			{
+				return Concrete.GetVisibleText();
+			}
+	
+			public string GetVisibleText(System.Drawing.Rectangle textArea)
+			{
+				return Concrete.GetVisibleText(textArea);
+			}
+	
+			public System.Nullable<System.Drawing.Point> VerifyImageExists(System.Drawing.Image imageToFind, byte similarity = 100)
+			{
+				return Concrete.VerifyImageExists(imageToFind, similarity);
+			}
+	
+			public bool VerifyImageMatch(System.Drawing.Image expectedImage, byte pixelTolerance = 0, byte rgbTolerance = 0)
+			{
+				return Concrete.VerifyImageMatch(expectedImage, pixelTolerance, rgbTolerance);
+			}
+	
+			public bool VerifyImageMatch(System.Drawing.Image expectedImage, HP.LFT.SDK.Utils.ImageMaskArea maskArea, byte pixelTolerance = 0, byte rgbTolerance = 0)
+			{
+				return Concrete.VerifyImageMatch(expectedImage, maskArea, pixelTolerance, rgbTolerance);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.IDescription description)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.Describe<TChild>(description);
+			}
+	
+			public void Click(HP.LFT.SDK.MouseButton button = HP.LFT.SDK.MouseButton.Left)
+			{
+				 Concrete.Click(button);
+			}
+	
+			public void Click(HP.LFT.SDK.ClickArgs args)
+			{
+				 Concrete.Click(args);
+			}
+	
+			public string GetAttribute(string attributeName)
+			{
+				return Concrete.GetAttribute(attributeName);
+			}
+	
+			public string GetComputedStyle(string styleProperty)
+			{
+				return Concrete.GetComputedStyle(styleProperty);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.Web.XPathDescription xpath)  where TChild:class, HP.LFT.SDK.Web.IWebElement
+			{
+				return Concrete.Describe<TChild>(xpath);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.Web.CSSDescription cssSelector)  where TChild:class, HP.LFT.SDK.Web.IWebElement
+			{
+				return Concrete.Describe<TChild>(cssSelector);
+			}
+	
+			public void DragAndDropOn(HP.LFT.SDK.ISupportDragAndDrop dropTarget)
+			{
+				 Concrete.DragAndDropOn(dropTarget);
+			}
+	
+			public void DragAndDropOn(HP.LFT.SDK.ISupportDragAndDrop dropTarget, HP.LFT.SDK.DragAndDropArgs dragAndDropArgs)
+			{
+				 Concrete.DragAndDropOn(dropTarget, dragAndDropArgs);
+			}
+	
+			#endregion
+	
+			#region Public Properties
+	
+			public string XPath
+			{
+				get { return Concrete.XPath; }		
+			}
+	
+			public string CSSSelector
+			{
+				get { return Concrete.CSSSelector; }		
+			}
+	
+			public string Role
+			{
+				get { return Concrete.Role; }		
+			}
+	
+			public string DisplayName
+			{
+				get { return Concrete.DisplayName; }		
+				set { Concrete.DisplayName = value; }
+			}
+	
+			public string ClassName
+			{
+				get { return Concrete.ClassName; }		
+			}
+	
+			public string Id
+			{
+				get { return Concrete.Id; }		
+			}
+	
+			public string TagName
+			{
+				get { return Concrete.TagName; }		
+			}
+	
+			public string InnerHTML
+			{
+				get { return Concrete.InnerHTML; }		
+			}
+	
+			public string OuterHTML
+			{
+				get { return Concrete.OuterHTML; }		
+			}
+	
+			public string InnerText
+			{
+				get { return Concrete.InnerText; }		
+			}
+	
+			public string OuterText
+			{
+				get { return Concrete.OuterText; }		
+			}
+	
+			public string Name
+			{
+				get { return Concrete.Name; }		
+			}
+	
+			public string Title
+			{
+				get { return Concrete.Title; }		
+			}
+	
+			public bool IsVisible
+			{
+				get { return Concrete.IsVisible; }		
+			}
+	
+			public System.Collections.Generic.IReadOnlyDictionary<string, string> Attributes
+			{
+				get { return Concrete.Attributes; }		
+			}
+	
+			public System.Collections.Generic.IReadOnlyDictionary<string, string> Styles
+			{
+				get { return Concrete.Styles; }		
+			}
+	
+			public System.Drawing.Point Location
+			{
+				get { return Concrete.Location; }		
+			}
+	
+			public System.Drawing.Point AbsoluteLocation
+			{
+				get { return Concrete.AbsoluteLocation; }		
+			}
+	
+			public System.Drawing.Size Size
+			{
+				get { return Concrete.Size; }		
+			}
+	
+			public dynamic NativeObject
+			{
+				get { return Concrete.NativeObject; }		
+			}
+	
+			#endregion
+		}
+
+		public abstract class ButtonNodeBase : AppModelNodeBase<HP.LFT.SDK.Web.IButton, HP.LFT.SDK.Web.ButtonDescription>, HP.LFT.SDK.Web.IButton
+		{
+			public ButtonNodeBase(ITestObject parent, AppModelBase applicationModel) : base(parent, applicationModel) { }
+
+			#region Public Methods
+	
+			public void DoubleClick()
+			{
+				 Concrete.DoubleClick();
+			}
+	
+			public void DoubleClick(HP.LFT.SDK.Web.WebDoubleClickArgs args)
+			{
+				 Concrete.DoubleClick(args);
+			}
+	
+			public void HoverTap()
+			{
+				 Concrete.HoverTap();
+			}
+	
+			public void HoverTap(HP.LFT.SDK.Location location)
+			{
+				 Concrete.HoverTap(location);
+			}
+	
+			public void FireEvent(HP.LFT.SDK.Web.EventInfo eventInfo)
+			{
+				 Concrete.FireEvent(eventInfo);
+			}
+	
+			public void LongPress()
+			{
+				 Concrete.LongPress();
+			}
+	
+			public void LongPress(HP.LFT.SDK.Web.WebLongPressArgs args)
+			{
+				 Concrete.LongPress(args);
+			}
+	
+			public void Pan(long deltaX, long deltaY)
+			{
+				 Concrete.Pan(deltaX, deltaY);
+			}
+	
+			public void Pan(HP.LFT.SDK.Web.WebPanArgs args)
+			{
+				 Concrete.Pan(args);
+			}
+	
+			public void Pinch(double scale)
+			{
+				 Concrete.Pinch(scale);
+			}
+	
+			public void Pinch(HP.LFT.SDK.Web.WebPinchArgs args)
+			{
+				 Concrete.Pinch(args);
+			}
+	
+			public void Swipe(HP.LFT.SDK.SwipeDirection direction)
+			{
+				 Concrete.Swipe(direction);
+			}
+	
+			public void Swipe(HP.LFT.SDK.Web.WebSwipeArgs args)
+			{
+				 Concrete.Swipe(args);
+			}
+	
+			public HP.LFT.SDK.IDescription GetDescription()
+			{
+				return Concrete.GetDescription();
+			}
+	
+			public TChild[] FindChildren<TChild>(HP.LFT.SDK.IDescription selector)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.FindChildren<TChild>(selector);
+			}
+	
+			public bool Exists()
+			{
+				return Concrete.Exists();
+			}
+	
+			public bool Exists(uint timeout)
+			{
+				return Concrete.Exists(timeout);
+			}
+	
+			public System.Drawing.Image GetSnapshot()
+			{
+				return Concrete.GetSnapshot();
+			}
+	
+			public void Highlight()
+			{
+				 Concrete.Highlight();
+			}
+	
+			public uint HighlightMatches<TChild>(HP.LFT.SDK.IDescription description)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.HighlightMatches<TChild>(description);
+			}
+	
+			public System.Drawing.Rectangle[] GetTextLocations(string textToFind)
+			{
+				return Concrete.GetTextLocations(textToFind);
+			}
+	
+			public System.Drawing.Rectangle[] GetTextLocations(string textToFind, System.Drawing.Rectangle textArea)
+			{
+				return Concrete.GetTextLocations(textToFind, textArea);
+			}
+	
+			public string GetVisibleText()
+			{
+				return Concrete.GetVisibleText();
+			}
+	
+			public string GetVisibleText(System.Drawing.Rectangle textArea)
+			{
+				return Concrete.GetVisibleText(textArea);
+			}
+	
+			public System.Nullable<System.Drawing.Point> VerifyImageExists(System.Drawing.Image imageToFind, byte similarity = 100)
+			{
+				return Concrete.VerifyImageExists(imageToFind, similarity);
+			}
+	
+			public bool VerifyImageMatch(System.Drawing.Image expectedImage, byte pixelTolerance = 0, byte rgbTolerance = 0)
+			{
+				return Concrete.VerifyImageMatch(expectedImage, pixelTolerance, rgbTolerance);
+			}
+	
+			public bool VerifyImageMatch(System.Drawing.Image expectedImage, HP.LFT.SDK.Utils.ImageMaskArea maskArea, byte pixelTolerance = 0, byte rgbTolerance = 0)
+			{
+				return Concrete.VerifyImageMatch(expectedImage, maskArea, pixelTolerance, rgbTolerance);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.IDescription description)  where TChild:class, HP.LFT.SDK.ITestObject
+			{
+				return Concrete.Describe<TChild>(description);
+			}
+	
+			public void Click(HP.LFT.SDK.MouseButton button = HP.LFT.SDK.MouseButton.Left)
+			{
+				 Concrete.Click(button);
+			}
+	
+			public void Click(HP.LFT.SDK.ClickArgs args)
+			{
+				 Concrete.Click(args);
+			}
+	
+			public string GetAttribute(string attributeName)
+			{
+				return Concrete.GetAttribute(attributeName);
+			}
+	
+			public string GetComputedStyle(string styleProperty)
+			{
+				return Concrete.GetComputedStyle(styleProperty);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.Web.XPathDescription xpath)  where TChild:class, HP.LFT.SDK.Web.IWebElement
+			{
+				return Concrete.Describe<TChild>(xpath);
+			}
+	
+			public TChild Describe<TChild>(HP.LFT.SDK.Web.CSSDescription cssSelector)  where TChild:class, HP.LFT.SDK.Web.IWebElement
+			{
+				return Concrete.Describe<TChild>(cssSelector);
+			}
+	
+			public void DragAndDropOn(HP.LFT.SDK.ISupportDragAndDrop dropTarget)
+			{
+				 Concrete.DragAndDropOn(dropTarget);
+			}
+	
+			public void DragAndDropOn(HP.LFT.SDK.ISupportDragAndDrop dropTarget, HP.LFT.SDK.DragAndDropArgs dragAndDropArgs)
+			{
+				 Concrete.DragAndDropOn(dropTarget, dragAndDropArgs);
+			}
+	
+			#endregion
+	
+			#region Public Properties
+	
+			public string ButtonType
+			{
+				get { return Concrete.ButtonType; }		
+			}
+	
+			public bool IsEnabled
+			{
+				get { return Concrete.IsEnabled; }		
+			}
+	
+			public string Text
+			{
+				get { return Concrete.Text; }		
+			}
+	
+			public string XPath
+			{
+				get { return Concrete.XPath; }		
+			}
+	
+			public string CSSSelector
+			{
+				get { return Concrete.CSSSelector; }		
+			}
+	
+			public string Role
+			{
+				get { return Concrete.Role; }		
+			}
+	
+			public string DisplayName
+			{
+				get { return Concrete.DisplayName; }		
+				set { Concrete.DisplayName = value; }
+			}
+	
+			public string ClassName
+			{
+				get { return Concrete.ClassName; }		
+			}
+	
+			public string Id
+			{
+				get { return Concrete.Id; }		
+			}
+	
+			public string TagName
+			{
+				get { return Concrete.TagName; }		
+			}
+	
+			public string InnerHTML
+			{
+				get { return Concrete.InnerHTML; }		
+			}
+	
+			public string OuterHTML
+			{
+				get { return Concrete.OuterHTML; }		
+			}
+	
+			public string InnerText
+			{
+				get { return Concrete.InnerText; }		
+			}
+	
+			public string OuterText
+			{
+				get { return Concrete.OuterText; }		
+			}
+	
+			public string Name
+			{
+				get { return Concrete.Name; }		
+			}
+	
+			public string Title
+			{
+				get { return Concrete.Title; }		
+			}
+	
+			public bool IsVisible
+			{
+				get { return Concrete.IsVisible; }		
+			}
+	
+			public System.Collections.Generic.IReadOnlyDictionary<string, string> Attributes
+			{
+				get { return Concrete.Attributes; }		
+			}
+	
+			public System.Collections.Generic.IReadOnlyDictionary<string, string> Styles
+			{
+				get { return Concrete.Styles; }		
+			}
+	
+			public System.Drawing.Point Location
+			{
+				get { return Concrete.Location; }		
+			}
+	
+			public System.Drawing.Point AbsoluteLocation
+			{
+				get { return Concrete.AbsoluteLocation; }		
+			}
+	
+			public System.Drawing.Size Size
+			{
+				get { return Concrete.Size; }		
+			}
+	
+			public dynamic NativeObject
+			{
+				get { return Concrete.NativeObject; }		
+			}
+	
+			#endregion
+		}
 
 		public abstract class EditFieldNodeBase : AppModelNodeBase<HP.LFT.SDK.Web.IEditField, HP.LFT.SDK.Web.EditFieldDescription>, HP.LFT.SDK.Web.IEditField
 		{
