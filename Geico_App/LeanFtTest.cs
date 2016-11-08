@@ -23,7 +23,8 @@ namespace Geico_App
             // Before each test
             browser = BrowserFactory.Launch(BrowserType.InternetExplorer);
             browser.Navigate("https://auto-buy-gz-user1.geico.com/");
-
+            GeicoApp GAM = new GeicoApp(browser);
+            GAM.CertificateErrorNavigationBlockedPage.ContinueToThisWebsiteNotRecommendedLink.Click();
 
         }
 
@@ -36,6 +37,7 @@ namespace Geico_App
         public void TearDown()
         {
             // Clean up after each test
+            browser.CloseAllTabs();
         }
 
         [TestFixtureTearDown]
